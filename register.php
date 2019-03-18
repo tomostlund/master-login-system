@@ -53,17 +53,7 @@ if($_POST && isset($_SESSION['token']) && ($_SESSION['token'] == $_POST['token']
   if($db->getRow("SELECT `userid` FROM `".MLS_PREFIX."users` WHERE `email` = ?s", $email))
     $page->error = "Email already in use !";
 
-
-  if(!isset($page->error)){
-    $user_data = array(
-      "username" => $name,
-      "display_name" => $display_name,
-      "password" => sha1($password),
-      "email" => $email,
-      "lastactive" => time(),
-      "regtime" => time(),
-      "validated" => 1
-      );
+    $key = sha1(rand());
 
     if($set->email_validation == 1) {
 
@@ -76,18 +66,38 @@ if($_POST && isset($_SESSION['token']) && ($_SESSION['token'] == $_POST['token']
       $from ="From: not.reply@".$url_info['host'];
       $sub = "Activate your account !";
       $msg = "Hello ".$options->html($name).",<br> Thank you for choosing to be a member of out community.<br/><br/> To confirm your account <a href='$link'>click here</a>.<br>If you can't access copy this to your browser<br/>$link  <br><br>Regards<br><small>Note: Dont reply to this email. If you got this email by mistake then ignore this email.</small>";
-      if(!$options->sendMail($email, $sub, $msg, $from))
+      if(!$options->sendMail($email, $sub, $msg, $from)){
         // if we can't send the mail by some reason we automatically activate the account
           $user_data["validated"] = 1;
+          $key = sha1(rand());}
     }
 
-    if(($db->query("INSERT INTO `".MLS_PREFIX."users` SET ?u", $user_data)) && ($id = $db->insertId()) && $db->query("INSERT INTO `".MLS_PREFIX."privacy` SET `userid` = ?i", $id)) {
-      $page->success = 1;
-      $_SESSION['user'] = $id; // we automatically login the user
-      $user = new User($db);
-    } else
-      $page->error = "There was an error ! Please try again !";
+  if(!isset($page->error)){
+    $user_data = array(
+      "username" => $name,
+      "display_name" => $display_name,
+      "password" => sha1($password),
+      "email" => $email,
+      "lastactive" => time(),
+      "regtime" => time(),
+      "validated" => 1,
+      "groupid" => 2,
+      "showavt" => 1,
+      "banned" => 0,
+      "key" => $key
+      );
 
+    if($db->query("INSERT INTO `".MLS_PREFIX."users` SET ?u", $user_data)){
+    if($id = $db->insertId()){
+      
+      if($db->query("INSERT INTO `".MLS_PREFIX."privacy` SET `userid` = ?i", $id))
+        {$page->success = 1;
+          $_SESSION['user'] = $id; // we automatically login the user
+          $user = new User($db);} }
+      
+    } else
+      $page->error = "Error";
+     
   }
 
 
@@ -197,4 +207,3 @@ else
 
 
 include "footer.php";
-

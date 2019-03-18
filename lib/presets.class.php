@@ -34,7 +34,7 @@ class presets {
                       "id" => "contact");
 
       $var[] = array("dropdown",
-                      array(  0 => array("href" => "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=T9HU2KAF54EBE&lc=RO&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted",
+                      array(  0 => array("href" => "https://www.paypal.me/1Alliance",
                                        "name" => "Donate",
                                        "class" => 0),
 
@@ -55,7 +55,7 @@ class presets {
 
 
 
-      // keep this always the last one or edit hrader.php:8
+      // keep this always the last one or edit header.php:8
       $var[] = array("dropdown",
                       array(  array("href" => $set->url."/profile.php?u=".$user->data->userid,
                                        "name" => "<i class=\"icon-user\"></i> My Profile",

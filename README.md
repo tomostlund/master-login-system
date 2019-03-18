@@ -1,14 +1,12 @@
 Master Login System  
-===================  
+===================   
 
-### Note: This project is no longer maintained.  
-
-An advanced login system build upon bootstrap with features like:
+An advanced login system build using bootstrap with features like:
 - Password recovery  
 - Privacy settings  
 - Admin panel  
 - User profile  
-- Groups system (member, moderator, administrator, plus custom groups)  
+- Groups system (member, moderator, administrator and custom groups)  
 - Contact form  
 - Members list  
 
@@ -35,4 +33,4 @@ After running the install.php script please check that the `inc/settings.php` co
 
 Donate 
 -----------------
-If you like my code you can support me by making a [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5VVJJXVFMQ9ZN)
+If you like my code you can support me by making a [donation](https://www.paypal.me/1Alliance)
