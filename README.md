@@ -14,7 +14,7 @@ Video Walkthrough
 http://www.youtube.com/watch?v=y7SdQfZfLbA
 
 
-##== Installation ==  
+## == Installation ==  
 
 1. Upload the files to your server  
 2. Run /install.php in your browser and complete the form. 
@@ -22,7 +22,7 @@ After running the install.php script please check that the `inc/settings.php` co
 3. Done !!
 
 
-##== ScreenShoots ==  
+## == ScreenShots ==  
 
 <p align="center">
   <img src="http://puu.sh/3gtZd.png"/>
@@ -33,4 +33,4 @@ After running the install.php script please check that the `inc/settings.php` co
 
 Donate 
 -----------------
-If you like my code you can support me by making a [donation](https://www.paypal.me/1Alliance)
+If you like the code you can support me by making a [donation](https://www.paypal.me/1Alliance)
