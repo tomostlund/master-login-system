@@ -6,14 +6,9 @@
  *
  */
 
-
 // we generate the navbar components in case they weren't before
 if($page->navbar == array())
     $page->navbar = $presets->GenerateNavbar();
-
-if(!$user->islg()) // if it's not logged in we hide the user menu
-    unset($page->navbar[count($page->navbar)-1]);
-
 
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
