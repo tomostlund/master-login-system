@@ -5,7 +5,7 @@
 //
 //  Copyright 2011 by Cory LaViska for A Beautiful Site, LLC.
 //
-//  http://abeautifulsite.net/blog/2011/01/a-simple-php-captcha-script/
+//  http://abeautifulsite.net/a-simple-php-captcha-script/
 //
 //
 
